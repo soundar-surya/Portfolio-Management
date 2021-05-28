@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const axios = require('axios')
-const stocks = require('./stockSymbols.json')
+// const stocks = require('./stockSymbols.json')
 const {key} = require('./keys')
 
 // app config
