@@ -1,15 +1,14 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const axios = require('axios')
-// const stocks = require('./stockSymbols.json')
-const {key} = require('./keys')
+const stocks = require('./stockSymbols.json')
+const key = require('./keys/key')
 
 // app config
 const app = express()
 
 // routes
 app.get('/stocks', (req, res) => {
-    console.log(key)
     res.send(stocks)
 })
 
