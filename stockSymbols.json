@@ -1,0 +1,49 @@
+{
+    "meta": {
+        "author": "soundarsurya",
+        "about": "A JSON object which contains stock symbols & name.",
+        "source": "https://finance.yahoo.com/lookup/index/"
+    },
+    "data": [
+        {
+            "symbol": "CRM",
+            "name": "salesforce.com, inc."
+        }, 
+        {
+            "symbol": "HPQ",
+            "name": "HP Inc."
+        },
+        {
+            "symbol": "ABNB",
+            "name": "Airbnb, Inc."
+        },
+        {
+            "symbol": "TSLA",
+            "name": "Tesla, Inc."
+        },
+        {
+            "symbol": "DELL",
+            "name": "Dell Technologies Inc."
+        },
+        {
+            "symbol": "AAPL",
+            "name": "Apple Inc."
+        },
+        {
+            "symbol": "GOOG",
+            "name": "Alphabet Inc."
+        },
+        {
+            "symbol": "UBI.PA",
+            "name": "Ubisoft Entertainment SA"
+        },
+        {
+            "symbol": "MSFT",
+            "name": "Microsoft Corporation"
+        },
+        {
+            "symbol": "AMZN",
+            "name": "Amazon.com, Inc."
+        }
+    ]
+}
