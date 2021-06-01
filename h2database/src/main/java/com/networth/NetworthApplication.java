@@ -1,13 +1,13 @@
-package com.db.h2database;
+package com.networth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class H2databaseApplication {
+public class NetworthApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(H2databaseApplication.class, args);
+		SpringApplication.run(NetworthApplication.class, args);
 	}
 
 }

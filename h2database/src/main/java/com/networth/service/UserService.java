@@ -1,4 +1,4 @@
-package com.db.h2database.service;
+package com.networth.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.db.h2database.model.User;
-import com.db.h2database.repository.UserRepository;
+import com.networth.model.User;
+import com.networth.repository.UserRepository;
 
 @Service
 public class UserService {

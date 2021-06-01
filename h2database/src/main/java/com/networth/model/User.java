@@ -1,4 +1,4 @@
-package com.db.h2database.model;
+package com.networth.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

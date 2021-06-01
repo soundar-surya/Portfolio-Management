@@ -8,11 +8,11 @@
 		<version>2.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.db</groupId>
-	<artifactId>h2database</artifactId>
+	<groupId>com.portfoliomanagement</groupId>
+	<artifactId>networth</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>h2database</name>
-	<description>Demo project for Spring Boot</description>
+	<name>networth</name>
+	<description>Networth module</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
