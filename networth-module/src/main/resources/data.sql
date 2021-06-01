@@ -2,7 +2,11 @@ DROP TABLE IF EXISTS User;
 CREATE TABLE User (
 	id INT PRIMARY KEY,
 	username VARCHAR(50) NOT NULL,
-	password VARCHAR(50) NOT NULL
+	password VARCHAR(250) NOT NULL
 );
-INSERT INTO User VALUES(1, 'surya', 'keychron');
+
+INSERT INTO User VALUES(1, 'Alex123', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu');
+
 INSERT INTO User VALUES(2, 'jesse', 'bluemeth');
+
+
