@@ -1,11 +1,12 @@
 package com.networth.service;
 
+import static com.networth.model.Constants.TOKEN_PREFIX;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,8 +15,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.networth.config.JwtTokenUtil;
 import com.networth.model.User;
 import com.networth.repository.UserRepository;
+
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.SignatureException;
 
 @Service(value="userService")
 public class UserService  implements UserDetailsService{
@@ -26,6 +31,8 @@ public class UserService  implements UserDetailsService{
 	@Autowired
 	private BCryptPasswordEncoder bcryptEncoder;
 
+	@Autowired
+	JwtTokenUtil util;
 	
 	public List getAllUsers() {
 		
@@ -33,6 +40,28 @@ public class UserService  implements UserDetailsService{
 		userRepository.findAll().forEach(user -> users.add(user));
 		
 		return users;
+	}
+	
+	public String getUser(String header) {
+		
+        String username = null;
+        String authToken = null;
+        if (header != null && header.startsWith(TOKEN_PREFIX)) {
+            authToken = header.replace(TOKEN_PREFIX,"");
+            try {
+                username = util.getUsernameFromToken(authToken);
+            } catch (IllegalArgumentException e) {
+                System.err.printf("an error occured during getting username from token", e);
+            } catch (ExpiredJwtException e) {
+            	System.err.printf("the token is expired and not valid anymore", e);
+            } catch(SignatureException e){
+            	System.err.println("Authentication Failed. Username or Password not valid.");
+            }
+        } else {
+        	System.err.println("couldn't find bearer string, will ignore the header");
+        }
+        
+		return username;
 	}
 
 
