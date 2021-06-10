@@ -1,10 +1,13 @@
 package com.cognizant.dailymutualfundnav.model;
 
+import io.swagger.annotations.ApiModel;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@ApiModel(value="MutualFundDetails", description = "A MutualFundDetails Model")
 @Entity
 @Table(name="mutualfunddetails")
 public class MutualFundDetails {
