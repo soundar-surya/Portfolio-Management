@@ -1,3 +1,3 @@
-create table portfolio (portfolio_id int primary key);
+create table portfoliodetails (portfolioid int primary key);
 
-create table asset (aid int primary key,asset_id varchar(20),portfolio_id int,type varchar(10),units int, foreign key(portfolio_id) references portfolio(portfolio_id));
+create table assetdetails (id int primary key,portfolioid int,assetid varchar(20),assettype varchar(10),assetcount int, foreign key(portfolioid) references portfoliodetails(portfolioid));

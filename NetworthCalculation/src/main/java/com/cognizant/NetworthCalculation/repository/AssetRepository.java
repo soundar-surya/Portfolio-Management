@@ -1,14 +1,24 @@
 package com.cognizant.NetworthCalculation.repository;
 
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import com.cognizant.NetworthCalculation.model.AssetDetails;
 
-import com.cognizant.NetworthCalculation.model.Asset;
+public interface AssetRepository extends JpaRepository<AssetDetails, Integer> {
 
-public interface AssetRepository extends JpaRepository<Asset, Integer> {
+	//@Query("FROM Asset WHERE portfolioId = ?1")
+	//public List<AssetDetails> findAssetUsingPortfolioId(int portfolioId);
 
-	@Query("FROM Asset WHERE portfolioId = ?1")
-	public List<Asset> findAssetUsingPortfolioId(int portfolioId);
+
+	public List<AssetDetails> findByPortfolioIdOrderByAssetId(int portfolioId);
+
+	@Query("FROM AssetDetails WHERE portfolioId = ?1")
+	public List<AssetDetails> findAssetDetailsUsingPortfolioId(int portfolioId);
+
+	public AssetDetails findByPortfolioIdAndAssetId(int portfolioId, String assetId);
+	@Modifying
+	@Query(value="Delete from AssetDetails where assetid =:assetId and portfolioId=:portfolioId")
+	public void deleteByPortfolioIdAndAssetId(int portfolioId, String assetId);
 }

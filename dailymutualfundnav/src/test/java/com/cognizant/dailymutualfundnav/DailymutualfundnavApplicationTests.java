@@ -28,7 +28,7 @@ class DailymutualfundnavApplicationTests {
 		assertNotNull(mutualFundController);
 	}
 	
-	@Test
+	/*@Test
     public void testGetDailyMutualFundNavByName() throws Exception {
         ResultActions actions = mvc.perform(get("/dailyMutualFundNav/Axis Mutual Fund"));
         actions.andExpect(status().isOk());
@@ -40,7 +40,7 @@ class DailymutualfundnavApplicationTests {
         
         actions.andExpect(jsonPath("$.mutualFundValue").exists());
         actions.andExpect(jsonPath("$.mutualFundValue").value("6000.0"));
-    }
+    }*/
 	
 
 }
