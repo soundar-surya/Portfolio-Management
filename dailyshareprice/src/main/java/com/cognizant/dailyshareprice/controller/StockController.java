@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Api(value="/dailySharePrice", tags={"SharePrice Controller"})
@@ -22,9 +23,12 @@ public class StockController {
 	response = Stock.class, responseContainer = "List")
 	@ApiResponses(value = {@ApiResponse(code=404, message="Resource Not Found")})
 	@GetMapping("/dailyAllSharePrice")
-	public List<Stock> getAllDailySharePrice() throws StockNotFoundException{
-		
+	public List<Stock> getAllDailySharePrice(HttpServletRequest req) throws StockNotFoundException{
+		String BearerToken = req.getHeader("Authorization");
+		if(service.AuthorizeUser(BearerToken)){
 			return service.getAllShares();
+		}
+		return null;
 	}
 
 	@ApiOperation(value = "Returns details of Stock based on Stock name.", notes="Details of a Stock is provided as JSON",

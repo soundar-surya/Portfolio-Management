@@ -1,23 +1,33 @@
 package com.cognizant.dailyshareprice.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import com.cognizant.dailyshareprice.feignclient.AuthClient;
 import com.cognizant.dailyshareprice.exception.StockNotFoundException;
 import com.cognizant.dailyshareprice.model.Stock;
 import com.cognizant.dailyshareprice.repository.StockRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class StockService {
 
 	@Autowired
 	StockRepository repository;
-	
+
+	@Autowired
+	AuthClient authClient;
+
+	public Boolean AuthorizeUser(String Header) {
+		try{
+			return authClient.verify(Header);
+		}
+		catch(Exception e) {
+			return false;
+		}
+	}
+
 	@Transactional
 	public List<Stock> getAllShares(){
 		return repository.findAll();
