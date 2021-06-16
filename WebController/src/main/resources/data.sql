@@ -1,0 +1,2 @@
+INSERT INTO LoginPortfolio VALUES(100, 'CHAY');
+INSERT INTO LoginPortfolio VALUES(200, 'SAM');
