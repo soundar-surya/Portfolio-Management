@@ -1,0 +1,21 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+ }
+ 
+ .row > div[class*='col-'] {
+   display: flex;
+ }
+#card{
+	background: #d9b3ff;
+} 
+body {
+    background-image: url("${pageContext.request.contextPath}/Images/bghome.jpg");
+    background-color: #00004d;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+   }
+body background-image{
+    opacity: 0.2;
+}
